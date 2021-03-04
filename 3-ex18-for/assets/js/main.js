@@ -5,8 +5,13 @@ const elementos = [
   {tag:'section', texto:'Frase4'},
 ]
 
+document.querySelector('.container').appendChild(
+  document.createElement('div')
+)
 
-for(i=0;i<elementos.length;i++){
-  document.querySelector('div').innerHTML+=
-  `<${elementos[i].tag}> ${elementos[i].texto} </${elementos[i].tag}> `
+for(let i=0;i<elementos.length;i++){
+  const {tag, texto} = elementos[i]
+  const element = document.createElement(tag)
+  element.innerHTML = texto
+  document.querySelector('div').appendChild(element) 
 }
